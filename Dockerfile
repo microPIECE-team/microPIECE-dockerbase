@@ -3,7 +3,7 @@ FROM ubuntu:${ubuntu_version}
 
 LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
       description="Base container for the microPIECE package" \
-      version="1.0" \
+      version="1.1" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url="https://github.com/microPIECE-team/microPIECE-dockerbase"
@@ -128,6 +128,7 @@ RUN apt update && apt install --yes --no-install-recommends \
     libipc-run3-perl \
     libdevel-cover-perl \
     libwww-perl \
+    libtest-script-run-perl \
     && \
     rm -rf /var/lib/apt/lists/*
 

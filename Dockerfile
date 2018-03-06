@@ -3,7 +3,10 @@ FROM ubuntu:${ubuntu_version}
 
 LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
       description="Base container for the microPIECE package" \
-      version="1.0"
+      version="1.0" \
+      org.label-schema.vcs-ref=$VCS_REF \
+      org.label-schema.build-date=$BUILD_DATE \
+      org.label-schema.vcs-url="https://github.com/microPIECE-team/microPIECE-dockerbase"
 
 RUN apt update && \
     apt install \

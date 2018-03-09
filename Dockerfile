@@ -3,7 +3,7 @@ FROM ubuntu:${ubuntu_version}
 
 LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
       description="Base container for the microPIECE package" \
-      version="1.1" \
+      version="1.2" \
       org.label-schema.vcs-ref=$VCS_REF \
       org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url="https://github.com/microPIECE-team/microPIECE-dockerbase"
@@ -134,9 +134,10 @@ RUN apt update && apt install --yes --no-install-recommends \
 
 RUN apt update && apt install --yes --no-install-recommends \
     cpanminus && \
-    cpanm RNA::HairpinFigure \
+    cpanm -L /extlib/ RNA::HairpinFigure \
     && \
     rm -rf /var/lib/apt/lists/*
+ENV PERL5LIB=/extlib/lib/perl5/:"$PERL5LIB"
 
 VOLUME /data
 WORKDIR /data

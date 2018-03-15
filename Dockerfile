@@ -21,6 +21,8 @@ RUN apt update && \
        python-cutadapt \
        emboss \
        openjdk-8-jre-headless \
+       less \
+       pv \
        && \
        rm -rf /var/lib/apt/lists/*
 

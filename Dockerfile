@@ -131,6 +131,7 @@ RUN apt update && apt install --yes --no-install-recommends \
     libdevel-cover-perl \
     libwww-perl \
     libtest-script-run-perl \
+    libterm-progressbar-perl \
     && \
     rm -rf /var/lib/apt/lists/*
 

@@ -35,7 +35,7 @@ RUN apt update && \
     add-apt-repository 'deb http://httpredir.debian.org/debian experimental main' && \
     add-apt-repository 'deb http://httpredir.debian.org/debian sid main' && \
     apt update && \
-    apt install openjdk-7-jre-headless && \
+    apt install --yes --no-install-recommends openjdk-7-jre-headless && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt

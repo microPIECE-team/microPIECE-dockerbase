@@ -22,8 +22,8 @@ RUN apt update && \
        emboss \
        less \
        pv \
-       && \
-       rm -rf /var/lib/apt/lists/*
+    && \
+    rm -rf /var/lib/apt/lists/*
 
 # Due to miraligner requires java 1.7 we need to install jre 1.7
 # I found a solution at https://askubuntu.com/a/803616/427663

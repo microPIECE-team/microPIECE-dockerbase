@@ -20,11 +20,23 @@ RUN apt update && \
        ncbi-blast+ \
        python-cutadapt \
        emboss \
-       openjdk-8-jre-headless \
        less \
        pv \
        && \
        rm -rf /var/lib/apt/lists/*
+
+# Due to miraligner requires java 1.7 we need to install jre 1.7
+# I found a solution at https://askubuntu.com/a/803616/427663
+ADD debian /etc/apt/preferences.d/debian
+RUN apt update && \
+    apt install --yes --no-install-recommends \
+        debian-archive-keyring \
+	software-properties-common && \
+    add-apt-repository 'deb http://httpredir.debian.org/debian experimental main' && \
+    add-apt-repository 'deb http://httpredir.debian.org/debian sid main' && \
+    apt update && \
+    apt install openjdk-7-jre-headless && \
+    rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt
 RUN apt update && apt install --yes --no-install-recommends \
